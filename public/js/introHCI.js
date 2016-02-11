@@ -43,28 +43,22 @@ function callback(results) {
 }
 
 
-
-
-
-
 /*
  * Make an AJAX call to retrieve a color palette for the site
  * and apply it
  */
-function callback(colors) {
-	var results = $.get('palettes');
+
+
+function randomizeColors(e) {
+	console.log("User clicked on color button");
+	$.get("/palette", changeColors);
+}
+function changeColors (results) {
+	console.log(results['colors']['hex']);
+	var colors = results['colors']['hex'];
 	$('body').css('background-color', colors[0]);
 	$('.thumbnail').css('background-color', colors[1]);
 	$('h1, h2, h3, h4, h5, h5').css('color', colors[2]);
 	$('p').css('color', colors[3]);
 	$('.project img').css('opacity', .75);
-}
-
-
-
-function randomizeColors(e) {
-	console.log("User clicked on color button");
-
-	var colors = callback.colors;
-
 }
