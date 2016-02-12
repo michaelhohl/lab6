@@ -4,7 +4,7 @@
  */
 
 var express = require('express');
-var http = require('https');
+var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
